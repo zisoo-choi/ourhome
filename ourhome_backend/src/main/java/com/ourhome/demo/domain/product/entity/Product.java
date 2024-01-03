@@ -31,7 +31,16 @@ public class Product {
     public void prePersist() {
         // 할인 가격을 기본값으로 설정
         if (this.price != null && this.discountRate != null) {
-            this.discountPrice = this.price - (this.price * this.discountRate / 100);
+            double discountRate = this.discountRate * 0.01; // 할인율을 0과 1 사이의 값으로 변환
+            double discountedPrice = this.price - (this.price * discountRate);
+            // 소수점 이하 반올림
+            this.discountPrice = (int) Math.round(discountedPrice);
+
+            int lastDigit = this.discountPrice % 10;
+            if (lastDigit > 0) {
+                // 할인 가격의 일의 자리가 1 이상이면 일의 자리 값을 제거
+                this.discountPrice -= lastDigit;
+            }
         }
     }
 }
