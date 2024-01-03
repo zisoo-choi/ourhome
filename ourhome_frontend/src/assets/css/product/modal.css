@@ -1,0 +1,44 @@
+body {
+    margin: 0;
+  }
+  div {
+    box-sizing: border-box;
+  }
+  .black-bg {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .white-bg {
+    width: 80%;
+    max-width: 600px; /* 최대 너비 설정 */
+    background: white;
+    padding: 20px;
+  }
+  .cartModalTopBar{
+      display: flex;
+      align-items: center;
+      justify-content:space-between;
+      margin: 5px;
+  }
+  .popUpText{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .cartPopUpText{
+    text-align: center;
+    margin: 30px;
+    font-size: 15px;
+  }
+  .popUpBtn{
+    margin: 0px 5px 0 5px;
+    border-radius: 0;
+  }

@@ -1,0 +1,94 @@
+.cartListContainer{
+    border: 4px solid gray;
+    margin: 20px;
+}
+.cartListTitle{
+    background-color: rgba(244, 244, 244, 0.5);
+    height: 50px;
+}
+.test{
+    display: flex;
+    align-items: center;
+    margin: 15px;
+}
+.cartListImage{
+    border: 2px solid  rgba(244, 244, 244, 0.8);
+    margin: 0 15px 0 0;
+}
+.cartListProductBox{
+    border: 2px solid rgba(244, 244, 244, 0.8);
+}
+.cartListProductName{
+    font-weight: 600;
+    font-size: 16px;
+}
+.cartListProductPrice{
+    font-weight: 600;
+    font-size: 17px;
+}
+.cartListBtnBox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgb(208, 208, 208);
+    width: 90px;
+    height: 30px;
+}
+.cartListBtn{
+    width: 25px;
+}
+.iconCss{
+    font-size: 14px;
+    font-weight: bold;
+    color: rgb(98, 98, 98);
+}
+.cartListQuantity{
+    width: 40px;
+    border-left: 1px solid rgb(208, 208, 208);
+    border-right: 1px solid rgb(208, 208, 208);
+    font-weight: 500;
+    font-size: 15px;
+}
+.cartListBottom{
+    background-color: rgba(244, 244, 244, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 130px;
+}
+.cartListShopingCost,
+.cartListTotalAmount,
+.cartListPaymentAmount{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.cartListIcon{
+    margin: 25px;
+    font-size: 20px;
+    color: rgb(169, 169, 169);
+}
+.cartDicountAndCost{
+    align-items: center;
+}
+.cartCost{
+    font-size: 16px;
+    font-weight: bold;
+    color: rgb(105, 105, 105);
+    text-decoration: line-through
+}
+.cartListTitlePtag{
+    font-size: 14px;
+    font-weight: 700;
+    color: rgb(46, 46, 46);
+    margin: 10px;
+}
+.cartListAmountPtag{
+    font-size: 20px;
+    font-weight: 700;
+    color: rgb(46, 46, 46);
+    margin: 10px;
+}
+.cartListFreeDevlivery{
+    font-size: 13px; font-weight: 600; color: rgb(169, 169, 169);
+}
