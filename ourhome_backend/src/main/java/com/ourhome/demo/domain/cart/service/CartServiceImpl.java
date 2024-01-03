@@ -63,10 +63,7 @@ public class CartServiceImpl implements CartService {
         return responseDAO;
     }
 
-    @Override
-    public ReturnedCartResponseDTO decreasesProduct(Member member, Product product){
-        Cart cart = cartRepository.findByMemberId(member.getId());
-
+    public CartProduct findCartProduct(Cart cart, Product product){
         Optional<CartProduct> maybeCartProduct =
                 cartProductRepository.findByProductIdAndCartId(product.getId(), cart.getId());
 
@@ -74,8 +71,13 @@ public class CartServiceImpl implements CartService {
             log.info("장바구니에 존재하지 않는 상품입니다.");
             return null;
         }
+        return maybeCartProduct.get();
+    }
 
-        CartProduct cartProduct = maybeCartProduct.get();
+    @Override
+    public ReturnedCartResponseDTO decreasesProduct(Member member, Product product){
+        Cart cart = cartRepository.findByMemberId(member.getId());
+        CartProduct cartProduct = findCartProduct(cart, product);
 
         if (cartProduct.getCount() > 1) {
             cartProduct.minusCount();
@@ -89,16 +91,8 @@ public class CartServiceImpl implements CartService {
     @Override
     public ReturnedCartResponseDTO increaseProduct(Member member, Product product){
         Cart cart = cartRepository.findByMemberId(member.getId());
+        CartProduct cartProduct = findCartProduct(cart, product);
 
-        Optional<CartProduct> maybeCartProduct =
-                cartProductRepository.findByProductIdAndCartId(product.getId(), cart.getId());
-
-        if(maybeCartProduct.isEmpty()){
-            log.info("장바구니에 존재하지 않는 상품입니다.");
-            return null;
-        }
-
-        CartProduct cartProduct = maybeCartProduct.get();
         cartProduct.addCount();
         cartProductRepository.save(cartProduct);
         cartRepository.save(cart);
