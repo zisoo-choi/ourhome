@@ -33,18 +33,18 @@ public class CartController {
     }
 
     @PostMapping("/decrease-product")
-    public ReturnedCartResponseDTO decreaseProduct(@RequestBody DecreasesProductRequestDTO response){
+    public ReturnedCartResponseDTO decreaseProduct(@RequestBody DecreasesProductRequestDTO request){
         log.info("장바구니 수량 감소");
-        Member member = response.getMember();
-        Product product = response.getProduct();
+        Member member = request.getMember();
+        Product product = request.getProduct();
         return cartService.decreasesProduct(member, product);
     }
 
     @PostMapping("/increase-product")
-    public ReturnedCartResponseDTO increaseProduct(@RequestBody DecreasesProductRequestDTO response){
+    public ReturnedCartResponseDTO increaseProduct(@RequestBody DecreasesProductRequestDTO request){
         log.info("장바구니 수량 증가");
-        Member member = response.getMember();
-        Product product = response.getProduct();
+        Member member = request.getMember();
+        Product product = request.getProduct();
         return cartService.increaseProduct(member, product);
     }
 }
